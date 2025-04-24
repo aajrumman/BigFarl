@@ -1,49 +1,110 @@
-/* Fonts and basic reset */
-body, html {
+/* Base Style */
+body {
     margin: 0;
-    padding: 0;
-    font-family: 'Courier New', Courier, monospace;
-    background-color: black;
-    color: white;
-    height: 100vh;
+    background: #000;
+    color: #4ADE80;
+    font-family: 'Press Start 2P', monospace;
     overflow: hidden;
   }
   
-  /* Preloader styling */
-  #preloader {
-    background: linear-gradient(45deg, #4ADE80, #C4D38C, #728B6A);
+  /* Intro Styling */
+  #intro {
     position: fixed;
-    top: 0; left: 0;
-    width: 100vw;
-    height: 100vh;
+    inset: 0;
+    background: #000;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    flex-direction: column;
     z-index: 9999;
-    animation: fadeOut 6s forwards;
+    animation: fadeOut 10s forwards;
   }
   
-  /* Intro Text */
-  .intro-text {
+  #intro h1 {
     font-size: 3rem;
-    color: black;
-    animation: glitch 0.5s infinite;
+    color: #4ADE80;
+    animation: blink 1s steps(2, start) infinite;
   }
   
-  /* Glitch animation effect */
-  @keyframes glitch {
-    0% { transform: translate(0); }
-    20% { transform: translate(-2px, 2px); }
-    40% { transform: translate(2px, -2px); }
-    60% { transform: translate(-1px, 1px); }
-    80% { transform: translate(1px, -1px); }
-    100% { transform: translate(0); }
+  .glitch-lines {
+    width: 60%;
+    height: 2px;
+    margin-top: 1rem;
+    background: linear-gradient(to right, #C4D38C, #728B6A);
+    animation: scanline 1.5s infinite;
   }
   
-  /* Fade out preloader */
+  /* Header/Footer */
+  #site-header, #site-footer {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(to right, #C4D38C, #728B6A);
+    padding: 1rem 2rem;
+    border-radius: 12px;
+    color: #4ADE80;
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+  }
+  
+  /* Header + Footer Starting Pos */
+  #site-header {
+    top: 50%;
+    animation: slideUp 1s 10s forwards;
+  }
+  
+  #site-footer {
+    bottom: 50%;
+    animation: slideDown 1s 10s forwards;
+  }
+  
+  /* Animations */
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+  
+  @keyframes scanline {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+  }
+  
   @keyframes fadeOut {
-    0% { opacity: 1; }
-    90% { opacity: 1; }
-    100% { opacity: 0; visibility: hidden; }
+    0%, 90% { opacity: 1; }
+    100% {
+      opacity: 0;
+      visibility: hidden;
+      display: none;
+    }
+  }
+  
+  @keyframes slideUp {
+    to {
+      top: 2rem;
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slideDown {
+    to {
+      bottom: 2rem;
+      opacity: 1;
+    }
+  }
+  
+  /* Header/Footer Elements */
+  .logo, .contact, .icon, .policy-btn {
+    color: #4ADE80;
+    background: transparent;
+    border: none;
+    font-family: 'Press Start 2P', monospace;
+    cursor: pointer;
+  }
+  
+  .policy-btn:hover, .icon:hover {
+    text-decoration: underline;
   }
   
