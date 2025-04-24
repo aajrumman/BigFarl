@@ -42,7 +42,7 @@ body {
     background: linear-gradient(to right, #C4D38C, #728B6A);
     padding: 1rem 2rem;
     border-radius: 12px;
-    color: #4ADE80;
+    color: #070707;
     display: flex;
     gap: 2rem;
     align-items: center;
@@ -97,7 +97,7 @@ body {
   
   /* Header/Footer Elements */
   .logo, .contact, .icon, .policy-btn {
-    color: #4ADE80;
+    color: #0d0e0d;
     background: transparent;
     border: none;
     font-family: 'Press Start 2P', monospace;
