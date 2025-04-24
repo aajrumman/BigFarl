@@ -1,0 +1,49 @@
+/* Fonts and basic reset */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Courier New', Courier, monospace;
+    background-color: black;
+    color: white;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  /* Preloader styling */
+  #preloader {
+    background: linear-gradient(45deg, #4ADE80, #C4D38C, #728B6A);
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    animation: fadeOut 6s forwards;
+  }
+  
+  /* Intro Text */
+  .intro-text {
+    font-size: 3rem;
+    color: black;
+    animation: glitch 0.5s infinite;
+  }
+  
+  /* Glitch animation effect */
+  @keyframes glitch {
+    0% { transform: translate(0); }
+    20% { transform: translate(-2px, 2px); }
+    40% { transform: translate(2px, -2px); }
+    60% { transform: translate(-1px, 1px); }
+    80% { transform: translate(1px, -1px); }
+    100% { transform: translate(0); }
+  }
+  
+  /* Fade out preloader */
+  @keyframes fadeOut {
+    0% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { opacity: 0; visibility: hidden; }
+  }
+  
