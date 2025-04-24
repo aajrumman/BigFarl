@@ -55,8 +55,10 @@ body {
     position: fixed;
     left: 50%;
     transform: translateX(-50%);
-    background: linear-gradient(to right, #C4D38C, #728B6A);
+    background: black;
     padding: 1rem 2rem;
+    border: solid 3px;
+    border-color:#4ADE80 ;
     border-radius: 12px;
     color: #4ADE80;
     display: flex;
