@@ -7,7 +7,7 @@ body {
     overflow: hidden;
   }
   
-  /* Intro Styling */
+  /* Intro Animation */
   #intro {
     position: fixed;
     inset: 0;
@@ -15,23 +15,39 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
     z-index: 9999;
-    animation: fadeOut 10s forwards;
+    animation: fadeOut 6s forwards;
   }
   
-  #intro h1 {
-    font-size: 3rem;
+  .merge-animation {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 0.5rem;
+  }
+  
+  .char {
+    font-size: 2rem;
     color: #4ADE80;
-    animation: blink 1s steps(2, start) infinite;
+    opacity: 0;
+    transform: translateX(calc((var(--i) - 6) * 100px));
+    animation: merge 1.5s ease-out forwards;
+    animation-delay: calc(0.1s * var(--i));
   }
   
-  .glitch-lines {
-    width: 60%;
-    height: 2px;
-    margin-top: 1rem;
-    background: linear-gradient(to right, #C4D38C, #728B6A);
-    animation: scanline 1.5s infinite;
+  @keyframes merge {
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes fadeOut {
+    0%, 85% { opacity: 1; }
+    100% {
+      opacity: 0;
+      visibility: hidden;
+      display: none;
+    }
   }
   
   /* Header/Footer */
@@ -42,7 +58,7 @@ body {
     background: linear-gradient(to right, #C4D38C, #728B6A);
     padding: 1rem 2rem;
     border-radius: 12px;
-    color: #070707;
+    color: #4ADE80;
     display: flex;
     gap: 2rem;
     align-items: center;
@@ -53,32 +69,12 @@ body {
   /* Header + Footer Starting Pos */
   #site-header {
     top: 50%;
-    animation: slideUp 1s 10s forwards;
+    animation: slideUp 1s 6s forwards;
   }
   
   #site-footer {
     bottom: 50%;
-    animation: slideDown 1s 10s forwards;
-  }
-  
-  /* Animations */
-  @keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
-  }
-  
-  @keyframes scanline {
-    0%, 100% { opacity: 0.3; }
-    50% { opacity: 1; }
-  }
-  
-  @keyframes fadeOut {
-    0%, 90% { opacity: 1; }
-    100% {
-      opacity: 0;
-      visibility: hidden;
-      display: none;
-    }
+    animation: slideDown 1s 6s forwards;
   }
   
   @keyframes slideUp {
@@ -97,7 +93,7 @@ body {
   
   /* Header/Footer Elements */
   .logo, .contact, .icon, .policy-btn {
-    color: #36b536;
+    color: #4ADE80;
     background: transparent;
     border: none;
     font-family: 'Press Start 2P', monospace;
